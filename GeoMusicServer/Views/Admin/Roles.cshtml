@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 col-sm-8">
+            <h1 class="page-header">
+                Admin Panel
+            </h1>
+            <table>
+                <tr>                    
+                    <th>
+                        RoleName
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+
+                @foreach (var role in ViewBag.Roles)
+                {
+                    <tr>                        
+                        <td>
+                            @role.Name
+                        </td>
+                        <td>
+                            @Html.ActionLink("Редактировании", "Edit", new { id = role.Id }) |
+                            @Html.ActionLink("Удалить", "Delete", new { id = role.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
